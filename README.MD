@@ -1,130 +1,73 @@
-# Friend Finder - Node and Express Servers
+# FriendFinder
 
-### Overview
+## Description
+LIRI is a _Language_ Interpretation and Recognition Interface. LIRI is a command line node app that takes in parameters and gives you back data.
 
-In this activity, you'll build a compatibility-based "FriendFinder" application -- basically a dating app. This full-stack site will take in results from your users' surveys, then compare their answers with those from other users. The app will then display the name and picture of the user with the best overall match.
+## Dependencies and APIs
 
-You will use Express to handle routing. Make sure you deploy your app to Heroku so other users can fill it out.
+  * [Node-Spotify-API](https://www.npmjs.com/package/node-spotify-api)
 
 
-### Before You Begin
 
-* Check out [this demo version of the site](https://friend-finder-fsf.herokuapp.com/). Use this as a model for how we expect your assignment look and operate.
+## What Each Command Should Do
 
-* Create a folder called `FriendFinder`. Inside the folder, organize your directories so it matches the following:
+1. `node liri.js concert-this <artist>`
 
-  ```
-  FriendFinder
-    - .gitignore
-    - app
-      - data
-        - friends.js
-      - public
-        - home.html
-        - survey.html
-      - routing
-        - apiRoutes.js
-        - htmlRoutes.js
-    - node_modules
-    - package.json
-    - server.js
-  ```
+   * This will search the Bands in Town Artist Events API for an artist and render:
 
-### Submission on BCS
+     * Name of the venue
 
-* Please submit both the deployed Heroku link to your homework AND the link to the Github Repository!
+     * Venue location
 
-### Instructions
+     * Date of the Event (use moment to format this as "MM/DD/YYYY")
 
-1. Your survey should have 10 questions of your choosing. Each answer should be on a scale of 1 to 5 based on how much the user agrees or disagrees with a question.
+![concert-this](assets/images/concert-this.png)
+Format: ![Alt Text](url)
 
-2. Your `server.js` file should require the basic npm packages we've used in class: `express` and `path`.
+2. `node liri.js spotify-this-song '<song>'`
 
-3. Your `htmlRoutes.js` file should include two routes:
+   * This will show the following information about the song:
 
-   * A GET Route to `/survey` which should display the survey page.
-   * A default, catch-all route that leads to `home.html` which displays the home page.
+     * Artist(s)
 
-4. Your `apiRoutes.js` file should contain two routes:
+     * The song's name
 
-   * A GET route with the url `/api/friends`. This will be used to display a JSON of all possible friends.
-   * A POST routes `/api/friends`. This will be used to handle incoming survey results. This route will also be used to handle the compatibility logic.
+     * A preview link of the song from Spotify
 
-5. You should save your application's data inside of `app/data/friends.js` as an array of objects. Each of these objects should roughly follow the format below.
+     * The album that the song is from
 
-```json
-{
-  "name":"Ahmed",
-  "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
-  "scores":[
-      5,
-      1,
-      4,
-      4,
-      5,
-      1,
-      2,
-      5,
-      4,
-      1
-    ]
-}
-```
+   * If no song is provided then your program will default to "The Sign" by Ace of Base.
 
-6. Determine the user's most compatible friend using the following as a guide:
+![spotify-this](assets/images/spotify-this.png)
+Format: ![Alt Text](url)
 
-   * Convert each user's results into a simple array of numbers (ex: `[5, 1, 4, 4, 5, 1, 2, 5, 4, 1]`).
-   * With that done, compare the difference between current user's scores against those from other users, question by question. Add up the differences to calculate the `totalDifference`.
-     * Example:
-       * User 1: `[5, 1, 4, 4, 5, 1, 2, 5, 4, 1]`
-       * User 2: `[3, 2, 6, 4, 5, 1, 2, 5, 4, 1]`
-       * Total Difference: **2 + 1 + 2 =** **_5_**
-   * Remember to use the absolute value of the differences. Put another way: no negative solutions! Your app should calculate both `5-3` and `3-5` as `2`, and so on.
-   * The closest match will be the user with the least amount of difference.
+3. `node liri.js movie-this '<movie name here>'`
 
-7. Once you've found the current user's most compatible friend, display the result as a modal pop-up.
-   * The modal should display both the name and picture of the closest match.
+   * This will output the following information:
 
-### Reminder: Submission on BCS
+     ```
+       * Title of the movie.
+       * Year the movie came out.
+       * IMDB Rating of the movie.
+       * Rotten Tomatoes Rating of the movie.
+       * Country where the movie was produced.
+       * Language of the movie.
+       * Plot of the movie.
+       * Actors in the movie.
+     ```
 
-* Please submit both the deployed Heroku link to your homework AND the link to the Github Repository!
+   * If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'
 
-- - -
+     * If you haven't watched "Mr. Nobody," then you should: <http://www.imdb.com/title/tt0485947/>
 
-### Minimum Requirements
+     * It's on Netflix!
 
-Attempt to complete homework assignment as described in instructions. If unable to complete certain portions, please pseudocode these portions to describe what remains to be completed. Adding a README.md as well as adding this homework to your portfolio are required as well and more information can be found below. **This assignment must be deployed.**
+![movie-this](assets/images/movie-this.png)
+Format: ![Alt Text](url)
 
-- - -
+4. `node liri.js do-what-it-says`
 
-### Hosting on Heroku
+   * LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
 
-Now that we have a backend to our applications, we use Heroku for hosting. Please note that while **Heroku is free**, it will request credit card information if you have more than 5 applications at a time or are adding a database.
-
-Please see [Heroku’s Account Verification Information](https://devcenter.heroku.com/articles/account-verification) for more details.
-
-See the [Supplemental Heroku Deployment Guide](../../03-Supplemental/HerokuGuide.md) for in-detail deployment instructions.
-
-- - -
-
-### Create a README.md
-
-Add a `README.md` to your repository describing the project. Here are some resources for creating your `README.md`. Here are some resources to help you along the way:
-
-* [About READMEs](https://help.github.com/articles/about-readmes/)
-
-* [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
-
-- - -
-
-### Add To Your Portfolio
-
-After completing the homework please add the piece to your portfolio. Make sure to add a link to your updated portfolio in the comments section of your homework so the TAs can easily ensure you completed this step when they are grading the assignment. To receive an 'A' on any assignment, you must link to it from your portfolio.
-
-- - -
-
-### One More Thing
-
-If you have any questions about this project or the material we have covered, please post them in the community channels in slack so that your fellow developers can help you! If you're still having trouble, you can come to office hours for assistance from your instructor and TAs.
-
-**Good Luck!**
+![do-this](assets/images/do-this.png)
+Format: ![Alt Text](url)

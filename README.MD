@@ -1,11 +1,13 @@
 # FriendFinder
 
 ## Description
-LIRI is a _Language_ Interpretation and Recognition Interface. LIRI is a command line node app that takes in parameters and gives you back data.
+A full-stack dating app that will take in results from users surveys, then compare their answers with those from other users. The app will then display the name and picture of the user with the best overall match.
 
 ## Dependencies and APIs
 
-  * [Node-Spotify-API](https://www.npmjs.com/package/node-spotify-api)
+  * [Express](https://www.npmjs.com/package/express)
+
+  * [Path](https://www.npmjs.com/package/path)
 
 
 

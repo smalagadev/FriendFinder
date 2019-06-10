@@ -7,7 +7,7 @@
     <title>More than a friend finder</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
   </head>
   <body>
     <h1></h1>
@@ -17,29 +17,27 @@
         <div class="content">
           <ol type="1">
             <li class="box">
-              Question 1<hr>
-              <p class="subtitle">
-                <div class="control is-aligned-stretch">
-                  <label class="radio">
-                    <input type="radio" name="Q1" value="1">  1 Strongly disagree.
-                  </label>
-                  <label class="radio">
-                    <input type="radio" name="Q1" value="2">  2 Somewhat agree.
-                  </label>
-                  <label class="radio">
-                    <input type="radio" name="Q1" value="3">  3 No strong feelings.
-                  </label>
-                  <label class="radio">
-                    <input type="radio" name="Q1" value="4">  4 Somewhat agree.
-                  </label>
-                  <label class="radio">
-                    <input type="radio" name="Q1" value="5">  5 Strongly disagree.
-                  </label>
-                </div>
-              </p>
+              You enjoy bars.<hr>
+              <div class="control is-aligned-stretch">
+                <label class="radio">
+                  <input type="radio" name="Q1" value="1">  1 Strongly disagree.
+                </label>
+                <label class="radio">
+                  <input type="radio" name="Q1" value="2">  2 Somewhat agree.
+                </label>
+                <label class="radio">
+                  <input type="radio" name="Q1" value="3">  3 No strong feelings.
+                </label>
+                <label class="radio">
+                  <input type="radio" name="Q1" value="4">  4 Somewhat agree.
+                </label>
+                <label class="radio">
+                  <input type="radio" name="Q1" value="5">  5 Strongly disagree.
+                </label>
+              </div>
             </li>
             <li class="box">
-              Question <hr>
+              You enjoy animals.<hr>
               <div class="control is-aligned-stretch">
                 <label class="radio">
                   <input type="radio" name="Q2" value="1">  1 Strongly disagree.
@@ -59,7 +57,7 @@
               </div>
             </li>
             <li class="box">
-              Question <hr>
+              You are enjoy fitness.<hr>
               <div class="control is-aligned-stretch">
                 <label class="radio">
                   <input type="radio" name="Q3" value="1">  1 Strongly disagree.
@@ -79,7 +77,7 @@
               </div>
             </li>
             <li class="box">
-              Question <hr>
+              You read books. <hr>
               <div class="control is-aligned-stretch">
                 <label class="radio">
                   <input type="radio" name="Q4" value="1">  1 Strongly disagree.
@@ -99,7 +97,7 @@
               </div>
             </li>
             <li class="box">
-              Question <hr>
+              You play video games.<hr>
               <div class="control is-aligned-stretch">
                 <label class="radio">
                   <input type="radio" name="Q5" value="1">  1 Strongly disagree.
@@ -119,7 +117,7 @@
               </div>
             </li>
             <li class="box">
-              Question <hr>
+              You enjoy art.<hr>
               <div class="control is-aligned-stretch">
                 <label class="radio">
                   <input type="radio" name="Q6" value="1">  1 Strongly disagree.
@@ -139,7 +137,7 @@
               </div>
             </li>
             <li class="box">
-              Question <hr>
+              You enjoy staying.<hr>
               <div class="control is-aligned-stretch">
                 <label class="radio">
                   <input type="radio" name="Q7" value="1">  1 Strongly disagree.
@@ -159,7 +157,7 @@
               </div>
             </li>
             <li class="box">
-              Question <hr>
+              You enjoy traveling.<hr>
               <div class="control is-aligned-stretch">
                 <label class="radio">
                   <input type="radio" name="Q8" value="1">  1 Strongly disagree.
@@ -179,7 +177,7 @@
               </div>
             </li>
             <li class="box">
-              Question <hr>
+              You enjoy live events.<hr>
               <div class="control is-aligned-stretch">
                 <label class="radio">
                   <input type="radio" name="Q9" value="1">  1 Strongly disagree.
@@ -199,7 +197,7 @@
               </div>
             </li>
             <li class="box">
-              Question <hr>
+              You enjoy nature.<hr>
               <div class="control is-aligned-stretch">
                 <label class="radio">
                   <input type="radio" name="Q10" value="1">  1 Strongly disagree.
@@ -244,7 +242,7 @@
       let survey = [];
       const submit = document.getElementById('submit');
       const responses = document.querySelectorAll("input");
-
+      const friends = require('./../../data/friends.js');
 
 
 
@@ -261,7 +259,7 @@
         else{
           document.getElementById('pop-up').classList.add('is-active');
         }
-
+        console.log(friends);
       });
 
 // Modal close button behavior

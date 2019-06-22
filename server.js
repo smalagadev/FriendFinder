@@ -8,12 +8,12 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static('public'));
 
-app.use(favicon(__dirname + '/app/public/assets/images/favicon.png'));
-app.use(express.static(__dirname + '/app/public/css/style.css'));
+app.use(favicon(__dirname + '/public/assets/images/favicon.png'));
 
-require('./app/routing/htmlRoutes.js')(app);
-require('./app/routing/apiRoutes.js')(app);
+require('./routing/htmlRoutes.js')(app);
+require('./routing/apiRoutes.js')(app);
 
 app.listen(PORT, function(){
   console.log(`Connected at PORT:${PORT}`);
